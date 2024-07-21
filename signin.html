@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signin</title>
+    <link rel="stylesheet" href="signin.css">
+    
+    <script src="signin.js"></script>
+</head>
+<body>
+    <div class="container">
+    <form action="https://sheetdb.io/api/v1/aa9ztsbubz2fq" method="POST" id="sheet-db">
+        <h2>Login</h2>
+        <div class="input-group success">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="data[User Name]" required>
+        </div>
+        <div class="input-group error">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="data[Email]" required>
+        </div>
+        <div class="input-group">
+            <label for="mb">Mobile Number</label>
+            <input type="number" id="mb" name="data[Mobile Number]" required>
+        </div>
+        <div class="input-group">
+            <label for="">Gender</label>
+            <label for="male">Male</label>
+            <input type="Radio" id="male" name="data[male]">
+            <label for="female">Female</label>
+            <input type="Radio" id="female" name="data[male]">
+        </div>
+        <div class="input-group">
+            <label for="pass">Password</label>
+            <input type="password" id="pass" name="data[Password]" required>
+        </div><br>
+        
+        <Button id="signin" type="submit">Sign in</Button>
+        <p id="newuser"> New User</p>
+        <button  id="signup" type="submit">Sign Up</button>
+         
+
+        <script>
+            var form = document.getElementById("sheetdb-form")
+            form.addEventListener('submit',e=>{
+                e.preventDefault();
+                fetch(form.action,{
+                    method:"POST",
+                    body: new FormData(document.getElementById("sheetdb-form"))
+
+                }).then((html)=> {
+                    window.open('Responce.html','_blank');
+
+                });
+            })
+        </script>
+    </form>
+    </div>
+
+
+
+    
+</body>
+</html>
